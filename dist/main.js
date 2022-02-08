@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/bfe_3.js":
-/*!**********************!*\
-  !*** ./src/bfe_3.js ***!
-  \**********************/
+/***/ "./src/bfe_28.js":
+/*!***********************!*\
+  !*** ./src/bfe_28.js ***!
+  \***********************/
 /***/ (() => {
 
-eval("/*\n    Implement Array.prototype.flat\n*/\n\n/**\n * @param { Array } arr\n * @param { number } depth\n * @returns { Array }\n */\n function flat(arr, depth = 1) {\n    // your imeplementation here\n     let newArray = []\n      arr.forEach(item => {\n          if (Array.isArray(item) && depth > 0) {\n              newArray.push(...flat(item, depth - 1));\n          } else {\n              newArray.push(item)\n          }\n  \n      })\n      return newArray;\n  }\n\n  // I knew that function will return array but the problem was\n  // for for items at level 1, if the items were not array I had to return\n  // that item instead of array. So using spread operator for non array\n  // items, we can achieve it.\n  \n\n//# sourceURL=webpack://bfe/./src/bfe_3.js?");
+eval("// 28. implement clearAllTimeout()\n\n// window.setTimeout() could be used to schedule some task in the future.\n\n// Could you implement clearAllTimeout() to clear all the timers ?\n//  This might be useful when we want to clear things up before page transition.\n\n\n\n// adding block scope to make sure global scope is not polluted by timersSet\n{\n    let { setTimeout: _setTimeout, clearTimeout: _clearTimeout } = window;\n    const timersSet = new Set();\n    window.setTimeout = (fn, ...args) => {\n        // housekeeping stuff to make sure timersSet is not ever increasing if \n        // clearAllTimeout is not called, as clearAllTimeout is our own function.\n        const cbWithAutoCleanTimers = () => {\n            fn();\n            timersSet.delete(timerId);\n        }\n        const timerId = _setTimeout(cbWithAutoCleanTimers, ...args);\n        timersSet.add(timerId);\n        return timerId\n    }\n\n    window.clearAllTimeout = () => {\n        Array.from(timersSet).forEach(clearTimeout)\n    }\n}\n\nfunction fun() {\n    console.log(Math.random() * 100)\n}\n\nsetTimeout(fun, 1000)\nsetTimeout(fun, 2000)\nsetTimeout(fun, 3000)\n\n\nsetTimeout(clearAllTimeout, 2000)\n\n//# sourceURL=webpack://bfe/./src/bfe_28.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("/*\n    Implement Array.prototype.flat\n*/\n\n/**\n * @param { Array } arr
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bfe_3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bfe_3 */ \"./src/bfe_3.js\");\n/* harmony import */ var _bfe_3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bfe_3__WEBPACK_IMPORTED_MODULE_0__);\n// import bfe_154 from \"./bfe_154\"\n// import bfe_151 from \"./bfe_151\"\n// import bfe_155 from \"./bfe_155\"\n// import bfe_161 from \"./bfe_161\"\n// import bfe_146 from \"./bfe_146\"\n// import bfe_157 from \"./bfe_157\"\n\n\n//# sourceURL=webpack://bfe/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bfe_28__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bfe_28 */ \"./src/bfe_28.js\");\n/* harmony import */ var _bfe_28__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bfe_28__WEBPACK_IMPORTED_MODULE_0__);\n// import bfe_154 from \"./bfe_154\"\n// import bfe_151 from \"./bfe_151\"\n// import bfe_155 from \"./bfe_155\"\n// import bfe_161 from \"./bfe_161\"\n// import bfe_146 from \"./bfe_146\"\n// import bfe_157 from \"./bfe_157\"\n// import bfe_3 from \"./bfe_3\";\n\n\n\n//# sourceURL=webpack://bfe/./src/index.js?");
 
 /***/ })
 
