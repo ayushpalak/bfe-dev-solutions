@@ -19,14 +19,14 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nvar __WE
 
 /***/ }),
 
-/***/ "./src/bfe_4.js":
+/***/ "./src/bfe_6.js":
 /*!**********************!*\
-  !*** ./src/bfe_4.js ***!
+  !*** ./src/bfe_6.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n// 4. implement basic throttle()\n\n\n\n/**\n * @param {Function} func\n * @param {number} wait\n */\n function throttle(func, wait) {\n    let isCooling = false, lastArgs = false;\n      const wrapper = (...args) => {\n          if (!isCooling) {\n              func(...args);\n              isCooling = true;\n              setTimeout(() => {\n                  isCooling = false;\n                  if (lastArgs) {\n                      func(...lastArgs);\n                  }\n              }, wait)\n          } else {\n              lastArgs = args;\n          }\n  \n      }\n      return (...args) => wrapper(...args)\n  }\n\n\nfunction logger(caller) {\n    console.log(caller, new Date().getSeconds())\n}\n\nconst throttledLogger = throttle(logger, 3000);\nconst _throttledLogger = (0,lodash__WEBPACK_IMPORTED_MODULE_0__.throttle)(logger, 3000)\n\nwindow.addEventListener('mousemove', ({ caller = 'custom' }) => throttledLogger(caller))\nwindow.addEventListener('mousemove', ({ caller = 'original' }) => _throttledLogger(caller))\n\n\n//# sourceURL=webpack://bfe/./src/bfe_4.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n// 6. implement basic debounce()\n\n\n\nfunction debounce(func, wait) {\n    let isCooling = true, timeout = null, lastArgs = null;\n    const funcWrapper = (...args) => {\n        isCooling = true;\n        clearTimeout(timeout);\n        lastArgs = args\n\n        timeout = setTimeout(() => {\n            func(...lastArgs);\n            isCooling = false;\n        }, wait);\n    }\n    return (...args) => funcWrapper(...args);\n}\n\n\n\n\n\nfunction logger(caller) {\n    console.log(caller, new Date().getSeconds())\n}\n\nconst debouncedLogger = debounce(logger, 3000);\nconst _debouncedLogger = (0,lodash__WEBPACK_IMPORTED_MODULE_0__.debounce)(logger, 3000)\n\nwindow.addEventListener('mousemove', ({ caller = 'custom' }) => debouncedLogger(caller))\nwindow.addEventListener('mousemove', ({ caller = 'original' }) => _debouncedLogger(caller))\n\n//# sourceURL=webpack://bfe/./src/bfe_6.js?");
 
 /***/ }),
 
@@ -37,7 +37,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var loda
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bfe_4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bfe_4 */ \"./src/bfe_4.js\");\n// import bfe_154 from \"./bfe_154\"\n// import bfe_151 from \"./bfe_151\"\n// import bfe_155 from \"./bfe_155\"\n// import bfe_161 from \"./bfe_161\"\n// import bfe_146 from \"./bfe_146\"\n// import bfe_157 from \"./bfe_157\"\n// import bfe_28 from \"./bfe_28\";\n// import bfe_1 from \"./bfe_1\";\n// import bfe_2 from \"./bfe_2\";\n// import bfe_3 from \"./bfe_3\";\n\n\n\n//# sourceURL=webpack://bfe/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bfe_6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bfe_6 */ \"./src/bfe_6.js\");\n// import bfe_154 from \"./bfe_154\"\n// import bfe_151 from \"./bfe_151\"\n// import bfe_155 from \"./bfe_155\"\n// import bfe_161 from \"./bfe_161\"\n// import bfe_146 from \"./bfe_146\"\n// import bfe_157 from \"./bfe_157\"\n// import bfe_28 from \"./bfe_28\";\n// import bfe_1 from \"./bfe_1\";\n// import bfe_2 from \"./bfe_2\";\n// import bfe_3 from \"./bfe_3\";\n// import bfe_4 from \"./bfe_4\";\n\n\n\n//# sourceURL=webpack://bfe/./src/index.js?");
 
 /***/ })
 

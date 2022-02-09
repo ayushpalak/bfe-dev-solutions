@@ -7,6 +7,7 @@ import { throttle as _throttle } from "lodash";
  * @param {number} wait
  */
  function throttle(func, wait) {
+    // lastargs keeps track of any calls, if any, when throttle was cooling down.
     let isCooling = false, lastArgs = false;
       const wrapper = (...args) => {
           if (!isCooling) {
@@ -19,7 +20,9 @@ import { throttle as _throttle } from "lodash";
                   }
               }, wait)
           } else {
-              lastArgs = args;
+            // while throttle is cooling update lastArgs with latest args 
+            // to be called right after cooling overs.
+            lastArgs = args;
           }
   
       }
