@@ -10,4 +10,7 @@
 // import bfe_3 from "./bfe_3";
 // import bfe_4 from "./bfe_4";
 // import bfe_6 from "./bfe_6";
-import bfe_96 from "./bfe_96";
+// import bfe_96 from "./bfe_96";
+// import bfe_132 from "./bfe_132";
+// import bfe_7 from "./bfe_7";
+import bfe_8 from "./bfe_8";
