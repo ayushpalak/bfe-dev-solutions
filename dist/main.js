@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/bfe_8.js":
-/*!**********************!*\
-  !*** ./src/bfe_8.js ***!
-  \**********************/
+/***/ "./src/bfe_159.js":
+/*!************************!*\
+  !*** ./src/bfe_159.js ***!
+  \************************/
 /***/ (() => {
 
-eval("window.myset = new Set();\nfunction permute(arr, index) {\n    if (index === arr.length-1) {\n        console.log(arr);\n        window.myset.add([...arr]);\n        return;\n    }\n    for (let i = index; i < arr.length; i++) {\n        arr.swap(i, index);\n        permute(arr, index + 1);\n        arr.swap(i, index);\n\n    }\n\n\n}\nArray.prototype.swap = function (ind1, ind2) {\n    [this[ind1], this[ind2]] = [this[ind2], this[ind1]]\n}\n\npermute([1, 2, 3, 4], 0)\n\n\n//# sourceURL=webpack://bfe/./src/bfe_8.js?");
+eval("// Let's take a look at following error-first callback.\n\n// const callback = (error, data) => {\n//   if (error) {\n//     // handle the error\n//   } else {\n//     // handle the data\n//   }\n// }\n// Now think about async functions that takes above error-first callback as last argument.\n\n// const func = (arg1, arg2, callback) => {\n//   // some async logic\n//   if (hasError) {\n//     callback(someError)\n//   } else {\n//     callback(null, someData)\n//   }\n// }\n// You see what needs to be done now. Please implement promisify() to make the code better.\n\n// const promisedFunc = promisify(func)\n\n// promisedFunc().then((data) => {\n//   // handles data\n// }).catch((error) => {\n//   // handles error\n// })\n\nfunction promisify(func) {\n    // your code here\n    return function (...args) {\n        return new Promise((resolve, reject) => {\n            func.call(this, ...args, (err, data) => {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve(data)\n                }\n\n            })\n        })\n    }\n}\n\n\n//# sourceURL=webpack://bfe/./src/bfe_159.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("window.myset = new Set();\nfunction permute(arr, index) {\n    if (index =
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bfe_8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bfe_8 */ \"./src/bfe_8.js\");\n/* harmony import */ var _bfe_8__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bfe_8__WEBPACK_IMPORTED_MODULE_0__);\n// import bfe_154 from \"./bfe_154\"\n// import bfe_151 from \"./bfe_151\"\n// import bfe_155 from \"./bfe_155\"\n// import bfe_161 from \"./bfe_161\"\n// import bfe_146 from \"./bfe_146\"\n// import bfe_157 from \"./bfe_157\"\n// import bfe_28 from \"./bfe_28\";\n// import bfe_1 from \"./bfe_1\";\n// import bfe_2 from \"./bfe_2\";\n// import bfe_3 from \"./bfe_3\";\n// import bfe_4 from \"./bfe_4\";\n// import bfe_6 from \"./bfe_6\";\n// import bfe_96 from \"./bfe_96\";\n// import bfe_132 from \"./bfe_132\";\n// import bfe_7 from \"./bfe_7\";\n\n\n\n//# sourceURL=webpack://bfe/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bfe_159__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bfe_159 */ \"./src/bfe_159.js\");\n/* harmony import */ var _bfe_159__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bfe_159__WEBPACK_IMPORTED_MODULE_0__);\n// import bfe_154 from \"./bfe_154\"\n// import bfe_151 from \"./bfe_151\"\n// import bfe_155 from \"./bfe_155\"\n// import bfe_161 from \"./bfe_161\"\n// import bfe_146 from \"./bfe_146\"\n// import bfe_157 from \"./bfe_157\"\n// import bfe_28 from \"./bfe_28\";\n// import bfe_1 from \"./bfe_1\";\n// import bfe_2 from \"./bfe_2\";\n// import bfe_3 from \"./bfe_3\";\n// import bfe_4 from \"./bfe_4\";\n// import bfe_6 from \"./bfe_6\";\n// import bfe_96 from \"./bfe_96\";\n// import bfe_132 from \"./bfe_132\";\n// import bfe_7 from \"./bfe_7\";\n// import bfe_8 from \"./bfe_8\";\n\n\n\n//# sourceURL=webpack://bfe/./src/index.js?");
 
 /***/ })
 
