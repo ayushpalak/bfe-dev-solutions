@@ -30,8 +30,9 @@
 function promisify(func) {
     // your code here
     return function (...args) {
-        return new Promise((resolve, reject) => {
-            func.call(this, ...args, (err, data) => {
+        var that = this;
+        return new Promise(function(resolve, reject){
+            func.call(that, ...args, (err, data) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -42,3 +43,13 @@ function promisify(func) {
         })
     }
 }
+
+// test case to check if promisified is making sure that the context passed is not lost
+const obj = {
+    a: 2,
+    func: function () {
+        this.a * 2;
+    }
+}
+const promisified = promisify(obj.func);
+promisified.call(obj);
