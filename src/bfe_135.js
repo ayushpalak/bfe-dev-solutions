@@ -11,9 +11,9 @@ const myLocalStorage = {
         // your code here
         window.localStorage.setItem(key, value);
         if (maxAge === 0) {
-            window.localStorage.removeItem(key)
+            removeItem(key)
         } else if(maxAge !== undefined) {
-            setTimeout(() => window.localStorage.removeItem(key), maxAge)
+            setTimeout(() => myLocalStorage.removeItem(key), maxAge)
         }
 
     },

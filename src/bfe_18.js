@@ -10,14 +10,18 @@
  */
 function excludeItems(items, excludes) {
     let result;
+    const excludeMap = new Map();
+
+    excludes.forEach(({ k, v }) => excludeMap.set(v, k))
+
     result = items.filter(item => {
         let found = false;
-        for(const {k,v} of excludes){
-            if(item[k] === v){
+        for (const [key, val] of Object.entries(item)) {
+            if (excludeMap.get(val) === key) {
                 found = true;
             }
         }
-        if(found){
+        if (found) {
             return false;
         }
         return true;
