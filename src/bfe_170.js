@@ -4,7 +4,7 @@
 
 
 /**
- * Navigate from target to until target.parent is equal to root. At each level find the index of target with respect to its parent or else `div > p` will always target the first `p`. 
+ * Navigate from target until target.parent is equal to root. At each level find the index of target with respect to its parent or else `div > p` will always target the first `p`. 
     Since css selector starts from index 1 so adding 1.
  */
 
